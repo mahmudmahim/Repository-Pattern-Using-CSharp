@@ -3,6 +3,7 @@ using SampleShop_Repository.Suppliers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,11 +15,26 @@ namespace SampleShop_Repository
         
         public static void DisplayOption()
         {
-            Console.Write("Please Select With Which You Want To Work: \t");
-            Console.WriteLine("\n");
-            Console.WriteLine("1. Suppliers \t2.Products \t3. Exit");
-            int _index = int.Parse(Console.ReadLine());
-            DesignPatternDisplay(_index);
+            try
+            {
+                Console.Write("Please Select With Which You Want To Work: \t");
+                Console.WriteLine("\n");
+                Console.WriteLine("1. Suppliers \t2.Products \t3. Exit");
+                int _index = int.Parse(Console.ReadLine());
+                DesignPatternDisplay(_index);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("================================");
+                Console.WriteLine($"Sorry!! Invalid Input Given. {ex.Message} ");
+                Console.WriteLine("*********************************");
+                DisplayOption();
+            }
+            //finally
+            //{
+            //    DisplayOption();
+            //}
+
         }
 
         public static void DesignPatternDisplay(int _index)
@@ -42,6 +58,7 @@ namespace SampleShop_Repository
             else if(_index == 3)
             {
                 Console.WriteLine("Thank You. Have a Good Day.");
+                
             }
             else
             {
@@ -52,23 +69,46 @@ namespace SampleShop_Repository
 
         public static void CommonDisplayOption()
         {
-            Console.WriteLine("1. Show All");
-            Console.WriteLine("2. Insert");
-            Console.WriteLine("3. Update");
-            Console.WriteLine("4. Delete");
-            Console.WriteLine("5. Exit/Back");
-            int index = int.Parse(Console.ReadLine());
-            SupplierWorkingMethods.SupplierWorkingPattern(index);
+            try
+            {
+                Console.WriteLine("1. Show All Supplier List");
+                Console.WriteLine("2. Insert Supplier");
+                Console.WriteLine("3. Update Supplier");
+                Console.WriteLine("4. Delete Supplier");
+                Console.WriteLine("5. Exit/Back");
+                int index = int.Parse(Console.ReadLine());
+                SupplierWorkingMethods.SupplierWorkingPattern(index);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("================================");
+                Console.WriteLine($"Sorry!! Invalid Input Given. {ex.Message} ");
+                Console.WriteLine("*********************************");
+                CommonDisplayOption();
+            }
+         
+          
         }
         public static void CommonDisplayOption2()
         {
-            Console.WriteLine("1. Show All");
-            Console.WriteLine("2. Insert");
-            Console.WriteLine("3. Update");
-            Console.WriteLine("4. Delete");
-            Console.WriteLine("5. Exit/Back");
-            int pIndex = int.Parse(Console.ReadLine());
-            ProductWorkingPattern.ProductWorkingMethod(pIndex);
+            try
+            {
+                Console.WriteLine("1. Show All Products");
+                Console.WriteLine("2. Insert Product");
+                Console.WriteLine("3. Update Product");
+                Console.WriteLine("4. Delete Product");
+                Console.WriteLine("5. Exit/Back");
+                int pIndex = int.Parse(Console.ReadLine());
+                ProductWorkingPattern.ProductWorkingMethod(pIndex);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("================================");
+                Console.WriteLine($"Sorry!! Invalid Input Given. {ex.Message} ");
+                Console.WriteLine("*********************************");
+                CommonDisplayOption2();
+            }
+          
         }
 
     }

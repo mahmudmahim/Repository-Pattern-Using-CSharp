@@ -52,7 +52,9 @@ namespace SampleShop_Repository.Products
                     Price = pPrice
                 };
                 productRepo.Insert(_productsInfo);
+                Console.WriteLine();
                 Console.WriteLine("Data Inserted Successfully");
+                Console.WriteLine();
                 DisplayingOptionMethods.CommonDisplayOption2();
             }
             //Updating Products Info
@@ -85,7 +87,9 @@ namespace SampleShop_Repository.Products
                         Price = pPrice
                     };
                     productRepo.Update(_productInfo);
+                    Console.WriteLine();
                     Console.WriteLine("Data Updated Successfully!!");
+                    Console.WriteLine();
                     DisplayingOptionMethods.CommonDisplayOption2();
                 }
             }
@@ -106,7 +110,9 @@ namespace SampleShop_Repository.Products
                 else
                 {
                     productRepo.Delete(deleteId);
+                    Console.WriteLine();
                     Console.WriteLine("Deletion Successfully DOne.......!!");
+                    Console.WriteLine();
                     DisplayingOptionMethods.CommonDisplayOption2();
                 }
             }
